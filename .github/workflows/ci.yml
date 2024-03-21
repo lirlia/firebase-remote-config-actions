@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -57,7 +58,9 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          command: validate
+          template-file-path: test_remote_config_values.json
+          service-account-key: ${{ secrets.TEST_SECRET }}
 
       - name: Print Output
         id: output
