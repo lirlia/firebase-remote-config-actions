@@ -1,0 +1,48 @@
+{
+  "version": {
+    "versionNumber": "4",
+    "updateOrigin": "ADMIN_SDK_NODE",
+    "updateType": "INCREMENTAL_UPDATE",
+    "updateUser": {
+      "email": "github-action@firebase-remote-config-actions.iam.gserviceaccount.com"
+    }
+  },
+  "conditions": [
+    {
+      "name": "1.0.0",
+      "expression": "app.version.>=(['1.0.0'])",
+      "tagColor": "ORANGE"
+    },
+    {
+      "name": "2.0.0",
+      "expression": "app.version.>=(['2.0.0'])",
+      "tagColor": "BLUE"
+    }
+  ],
+  "parameters": {
+    "test": {
+      "defaultValue": {
+        "value": "test value"
+      },
+      "valueType": "STRING"
+    }
+  },
+  "parameterGroups": {
+    "Feature Flags": {
+      "parameters": {
+        "useOssLicensesFlag": {
+          "defaultValue": {
+            "value": "false"
+          },
+          "conditionalValues": {
+            "1.0.0": {
+              "value": "true"
+            }
+          },
+          "description": "this is a flag",
+          "valueType": "BOOLEAN"
+        }
+      }
+    }
+  }
+}

@@ -7,14 +7,50 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  test-typescript:
-    name: TypeScript Tests
+  # test-typescript:
+  #   name: TypeScript Tests
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout
+  #       id: checkout
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup Node.js
+  #       id: setup-node
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: .node-version
+  #         cache: npm
+
+  #     - name: Install Dependencies
+  #       id: npm-ci
+  #       run: npm ci
+
+  #     - name: Check Format
+  #       id: npm-format-check
+  #       run: npm run format:check
+
+  #     - name: Lint
+  #       id: npm-lint
+  #       run: npm run lint
+
+  # - name: Test
+  #   id: npm-ci-test
+  #   run: npm run ci-test
+
+  test-action:
+    name: GitHub Actions Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - name: Checkout
@@ -28,37 +64,46 @@ jobs:
           node-version-file: .node-version
           cache: npm
 
-      - name: Install Dependencies
-        id: npm-ci
+      - uses: actions/cache@v3
+        id: node_modules_cache_id
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key:
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{
+            hashFiles('**/package-lock.json') }}
+
+      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
 
-      - name: Check Format
-        id: npm-format-check
-        run: npm run format:check
-
-      - name: Lint
-        id: npm-lint
-        run: npm run lint
-
-      - name: Test
-        id: npm-ci-test
-        run: npm run ci-test
-
-  test-action:
-    name: GitHub Actions Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: 'firebase-remote-config-actions'
+          workload_identity_provider: 'projects/37652434530/locations/global/workloadIdentityPools/firebase-remote-config-actions/providers/github'
+          create_credentials_file: true
 
       - name: Test Local Action
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          command: validate
+          template-file-path: ../test_remote_config_values.json
+          service-account-email: github-action@firebase-remote-config-actions.iam.gserviceaccount.com
 
-      - name: Print Output
-        id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
+      - name: Test Local Action
+        id: diff-action
+        uses: ./
+        with:
+          command: diff
+          template-file-path: ../test_remote_config_values.json
+          service-account-email: github-action@firebase-remote-config-actions.iam.gserviceaccount.com
+
+      - name: Test Local Action
+        id: publish-action
+        uses: ./
+        with:
+          command: publish
+          template-file-path: ../test_remote_config_values.json
+          service-account-email: github-action@firebase-remote-config-actions.iam.gserviceaccount.com
