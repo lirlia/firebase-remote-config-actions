@@ -1,0 +1,29 @@
+name: test wrapper
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+# Set concurrency to 1 to rewrite firebase remote config
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  merge_group:
+jobs:
+  call-test:
+    uses: ./.github/workflows/test.yaml
+  status-check:
+    runs-on: ubuntu-latest
+    needs: [call-test]
+    if: always()
+    steps:
+      - run: |
+          [[ ${{ needs.call-test.result }} == 'success' ]] && exit 0
+          exit 1

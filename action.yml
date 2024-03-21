@@ -1,6 +1,8 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'firebase-remote-config-actions'
+description:
+  'A GitHub Action to validate, publish, and diff Firebase Remote Config
+  templates'
+author: 'lirlia'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +11,34 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  command:
+    description: 'The command to run(validate, publish, diff)'
     required: true
-    default: '1000'
+    default: 'validate'
+
+  template-file-path:
+    description: 'The path to the template file'
+    required: true
+
+  service-account-email:
+    description: 'The service account email'
+    required: true
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  diff:
+    description:
+      'The diff of the template. Only available when the command is diff'
+
+  is-valid:
+    description:
+      'Whether the template is valid. Only available when the command is
+      validate'
+
+  invalid-reason:
+    description:
+      'The reason why the template is invalid. Only available when the command
+      is validate'
 
 runs:
   using: node20
