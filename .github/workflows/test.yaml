@@ -263,18 +263,25 @@ jobs:
         id: build
         run: npm run bundle
 
-      # This will fail the workflow if the PR wasn't created by Dependabot.
+      # Explicitly check if the PR was created by Dependabot and fail if not.
+      - name: Check PR Creator
+        id: check_pr_creator
+        run: |
+          if [[ "${{ github.event.pull_request.user.login }}" != "dependabot[bot]" ]]; then
+            echo "This workflow is intended only for Dependabot PRs."
+            exit 1
+          fi
+
       - name: Compare Directories
         id: diff
         run: |
           if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
-            echo "Detected uncommitted changes after build. See status below:"
+            echo "Detected uncommitted changes in the 'dist/' directory after build. Please ensure all changes are committed before pushing."
             git diff --ignore-space-at-eol --text dist/
             exit 1
           fi
 
-      # If `dist/` was different than expected, and this was not a Dependabot
-      # PR, upload the expected version as a workflow artifact.
+      # Upload the 'dist/' directory as a workflow artifact if there are uncommitted changes, regardless of the PR creator.
       - if: ${{ failure() && steps.diff.outcome == 'failure' }}
         name: Upload Artifact
         id: upload
