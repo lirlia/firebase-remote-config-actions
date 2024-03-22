@@ -63,7 +63,8 @@ jobs:
         uses: lirlia/firebase-remote-config-actions@v1
         with:
           command: 'validate'
-          template-file-path: './config/template.yaml'
+          # Please specify the absolute path.
+          template-file-path: '${{ github.workspace }}/template.json'
           service-account-email: 'xxx@yyyy.iam.gserviceaccount.com'
 ```
 
