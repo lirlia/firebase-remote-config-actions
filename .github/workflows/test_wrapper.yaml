@@ -2,8 +2,7 @@ name: test wrapper
 
 permissions:
   contents: read
-  checks: write
-  pull-requests: write
+  id-token: write
 
 # Set concurrency to 1 to rewrite firebase remote config
 concurrency:
