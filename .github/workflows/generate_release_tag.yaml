@@ -1,7 +1,7 @@
 name: generate release tag
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 
 permissions:
   contents: write
