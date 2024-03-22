@@ -3,6 +3,8 @@
 ![GitHub Action](https://img.shields.io/badge/GitHub-Action-red.svg?style=flat&logo=github&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-Remote%20Config-orange.svg?style=flat&logo=firebase)
 
+![logo](./images/logo.webp)
+
 Developed by [lirlia](https://github.com/lirlia), this GitHub Action facilitates
 the management of Firebase Remote Config templates.
 
