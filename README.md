@@ -60,7 +60,7 @@ jobs:
           create_credentials_file: true
 
       - name: Validate Firebase Remote Config
-        uses: lirlia/firebase-remote-config-actions@v1
+        uses: lirlia/firebase-remote-config-actions@main
         with:
           command: 'validate'
           # Please specify the absolute path.
