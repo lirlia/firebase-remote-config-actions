@@ -263,15 +263,6 @@ jobs:
         id: build
         run: npm run bundle
 
-      # Explicitly check if the PR was created by Dependabot and fail if not.
-      - name: Check PR Creator
-        id: check_pr_creator
-        run: |
-          if [[ "${{ github.event.pull_request.user.login }}" != "dependabot[bot]" ]]; then
-            echo "This workflow is intended only for Dependabot PRs."
-            exit 1
-          fi
-
       - name: Compare Directories
         id: diff
         run: |
@@ -280,12 +271,3 @@ jobs:
             git diff --ignore-space-at-eol --text dist/
             exit 1
           fi
-
-      # Upload the 'dist/' directory as a workflow artifact if there are uncommitted changes, regardless of the PR creator.
-      - if: ${{ failure() && steps.diff.outcome == 'failure' }}
-        name: Upload Artifact
-        id: upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
