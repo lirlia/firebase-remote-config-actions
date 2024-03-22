@@ -268,6 +268,6 @@ jobs:
         run: |
           if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
             echo "Detected uncommitted changes in the 'dist/' directory after build. Please ensure all changes are committed before pushing."
-            git diff --ignore-space-at-eol --text dist/
+            git diff --ignore-space-at-eol --ignore-all-space --ignore-blank-lines --text dist/
             exit 1
           fi
