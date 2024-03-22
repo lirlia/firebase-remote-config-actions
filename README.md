@@ -68,6 +68,14 @@ jobs:
           service-account-email: 'xxx@yyyy.iam.gserviceaccount.com'
 ```
 
+## How to Use
+
+1. Create a new service account in the Google Cloud Console.
+2. Add the `Firebase Remote Config Admin` role to the service account.
+3. Enable Workload Identity Federation for the service account.
+   - see: [google-github-actions/auth: A GitHub Action for authenticating to Google Cloud.](https://github.com/google-github-actions/auth)
+4. Add this action to your workflow file.
+
 ## Contributing
 
 We welcome contributions! Feel free to make a pull request or open an issue for
