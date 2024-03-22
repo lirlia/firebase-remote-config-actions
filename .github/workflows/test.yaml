@@ -247,3 +247,27 @@ jobs:
           command: publish
           template-file-path: ${{ env.REMOTE_CONFIG_PATH }}
           service-account-email: ${{ env.SERVICE_ACCOUNT_EMAIL }}
+
+  test-check-dist:
+    name: Check dist/
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+
+      - name: Build dist/ Directory
+        id: build
+        run: npm run bundle
+
+      - name: Compare Directories
+        id: diff
+        run: |
+          if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
+            echo "Detected uncommitted changes in the 'dist/' directory after build. Please ensure all changes are committed before pushing."
+            git diff --ignore-space-at-eol --ignore-all-space --ignore-blank-lines --text dist/
+            exit 1
+          fi
