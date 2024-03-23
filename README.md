@@ -3,7 +3,9 @@
 ![GitHub Action](https://img.shields.io/badge/GitHub-Action-red.svg?style=flat&logo=github&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-Remote%20Config-orange.svg?style=flat&logo=firebase)
 
-<img src='images/logo.webp' width='300'>
+<p align="center">
+  <img src='images/logo.webp' width='400'>
+</p>
 
 Developed by [lirlia](https://github.com/lirlia), this GitHub Action facilitates
 the management of Firebase Remote Config templates.
@@ -37,6 +39,119 @@ resources from GitHub Actions without the need for service account keys.
 | `diff`           | The diff of the template. Available only when the command is `diff`.       |
 | `is-valid`       | Indicates whether the template is valid. Available for `validate` command. |
 | `invalid-reason` | The reason the template is invalid. Available for `validate` command.      |
+
+### validate
+
+The `validate` output provides information about the validity of the template.
+
+```json
+{
+  "is-valid": false,
+  "invalid-reason": "Remote Config parameters must be a non-null object"
+}
+```
+
+> [!NOTE]
+> This action does not fail even if the validate fails. Therefore, if you want to fail the job when validate fails, check the output of `is-valid` and `invalid-reason`.
+
+```yaml
+- id: validate
+  uses: lirlia/firebase-remote-config-actions@main
+  with:
+    command: validate
+    template-file-path: xxx
+    service-account-email: xxx
+
+- name: check validate is ok
+  shell: bash
+  run: |
+    if [ "${{ steps.validate.outputs.is_valid }}" == "false" ]; then
+      echo "Remote config validation failed"
+      echo "${{ steps.validate.outputs.invalid-reason }}"
+      exit 1
+    fi
+```
+
+### diff
+
+```diff
+ {
+   parameterGroups: {
+     Feature Flags: {
+       parameters: {
++        featureFlagA: {
++          defaultValue: {
++            value: "false"
++          }
++          conditionalValues: {
++            ios-1.0.0: {
++              value: "true"
++            }
++            android-1.0.0: {
++              value: "true"
++            }
++          }
++          valueType: "BOOLEAN"
++        }
+         featureFlagB: {
+-          conditionalValues: {
+-            ios-0.1.0: {
+-              value: "true"
+-            }
+-            android-0.1.0: {
+-              value: "true"
+-            }
+-          }
+           defaultValue: {
+-            value: "false"
++            value: "true"
+           }
+         }
+       }
+     }
+   }
+   conditions: [
+     {
+-      name: "ios-0.1.0"
++      name: "ios-1.0.0"
+-      expression: "app.id == 'xx' && app.version.>=(['0.1.0'])"
++      expression: "app.id == 'xx' && app.version.>=(['1.0.0'])"
+     }
+     {
+-      name: "android-0.1.0"
++      name: "android-1.0.0"
+-      expression: "app.id == 'xx' && app.version.>=(['0.1.0'])"
++      expression: "app.id == 'xx' && app.version.>=(['1.0.0'])"
+     }
+   ]
+ }
+
+```
+
+> [!NOTE]
+> This action does not post the diff to the output. If you want to use the diff, you need to use the output of the action.
+
+```yaml
+- id: diff
+  uses: lirlia/firebase-remote-config-actions@main
+  with:
+    command: diff
+    template-file-path: xxx
+    service-account-email: xxx
+
+- name: Comment PR
+  uses: thollander/actions-comment-pull-request@main
+  if: ${{ steps.diff.outputs.diff != '' }}
+  with:
+    message: |
+      ## Remote Config Diff
+
+      ```diff
+      ${{ steps.diff.outputs.diff }}
+      ```
+
+    comment_tag: execution
+```
 
 ## Example Usage
 
