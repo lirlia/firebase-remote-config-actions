@@ -70,7 +70,7 @@
     "axios": "^1.6.8",
     "firebase-admin": "^12.0.0",
     "json-diff": "^1.0.6",
-    "json-diff-ts": "^2.2.1",
+    "json-diff-ts": "^3.0.0",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
