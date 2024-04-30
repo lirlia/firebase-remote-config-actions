@@ -51,8 +51,9 @@ The `validate` output provides information about the validity of the template.
 }
 ```
 
-> [!NOTE]
-> This action does not fail even if the validate fails. Therefore, if you want to fail the job when validate fails, check the output of `is-valid` and `invalid-reason`.
+> [!NOTE] This action does not fail even if the validate fails. Therefore, if
+> you want to fail the job when validate fails, check the output of `is-valid`
+> and `invalid-reason`.
 
 ```yaml
 - id: validate
@@ -128,10 +129,10 @@ The `validate` output provides information about the validity of the template.
 
 ```
 
-> [!NOTE]
-> This action does not post the diff to the output. If you want to use the diff, you need to use the output of the action.
+> [!NOTE] This action does not post the diff to the output. If you want to use
+> the diff, you need to use the output of the action.
 
-```yaml
+````yaml
 - id: diff
   uses: lirlia/firebase-remote-config-actions@main
   with:
@@ -151,7 +152,7 @@ The `validate` output provides information about the validity of the template.
       ```
 
     comment_tag: execution
-```
+````
 
 ## Example Usage
 
@@ -188,7 +189,8 @@ jobs:
 1. Create a new service account in the Google Cloud Console.
 2. Add the `Firebase Remote Config Admin` role to the service account.
 3. Enable Workload Identity Federation for the service account.
-   - see: [google-github-actions/auth: A GitHub Action for authenticating to Google Cloud.](https://github.com/google-github-actions/auth)
+   - see:
+     [google-github-actions/auth: A GitHub Action for authenticating to Google Cloud.](https://github.com/google-github-actions/auth)
 4. Add this action to your workflow file.
 
 ## Contributing
