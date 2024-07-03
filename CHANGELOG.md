@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.0.3](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.2...v0.0.3) - 2024-07-03
+- Update Songmu/tagpr action to v1.3.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/24
+- Update dependency node to v20.14.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/26
+- Update dependency eslint-plugin-github to v5 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/27
+- Update dependency node to v20.15.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/28
+- replace eslint to biome by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/29
+
 ## [v0.0.2](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.1...v0.0.2) - 2024-05-15
 - Update README.md and add validate and diff commands by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/11
 - Update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/13
