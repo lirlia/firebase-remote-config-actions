@@ -5,15 +5,15 @@
 //
 // see: https://github.com/firebase/firebase-admin-node/issues/1377
 
-import admin from "firebase-admin";
-import { Credential } from "firebase-admin/app";
-import { ComputeEngineCredential } from "../node_modules/firebase-admin/lib/app/credential-internal.js";
-import {
-	ExternalAccountClient,
-	BaseExternalAccountClient,
-} from "google-auth-library";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 import axios from "axios";
+import type admin from "firebase-admin";
+import type { Credential } from "firebase-admin/app";
+import {
+	type BaseExternalAccountClient,
+	ExternalAccountClient,
+} from "google-auth-library";
+import { ComputeEngineCredential } from "../node_modules/firebase-admin/lib/app/credential-internal.js";
 
 export class ExternalAccountCredential
 	// Inherits this class because it is verified to be an internal class at Firestore initialization.

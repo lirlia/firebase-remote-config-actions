@@ -20,11 +20,12 @@ export async function run(): Promise<void> {
 		});
 
 		switch (command) {
-			case "validate":
+			case "validate": {
 				const { isValid, reason } = await remoteConfigWrapper.validate();
 				core.setOutput("is-valid", isValid);
 				core.setOutput("invalid-reason", reason);
 				break;
+			}
 			case "publish":
 				await remoteConfigWrapper.publish();
 				break;

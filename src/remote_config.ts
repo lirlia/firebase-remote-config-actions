@@ -1,10 +1,10 @@
+import * as fs from "node:fs";
+import path from "node:path";
 import * as admin from "firebase-admin";
-import {
+import type {
 	RemoteConfig,
 	RemoteConfigTemplate,
 } from "firebase-admin/remote-config";
-import * as fs from "fs";
-import path from "path";
 import { diffString } from "json-diff";
 import { ExternalAccountCredential } from "./credential";
 

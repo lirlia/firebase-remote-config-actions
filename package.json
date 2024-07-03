@@ -25,9 +25,7 @@
   },
   "scripts": {
     "bundle": "npm run check && npm run package",
-    "lint": "biome lint --write .",
-    "format": "biome format --write ./src",
-    "check": "biome check .",
+    "check": "biome check --write ./src",
     "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt"
   },
   "license": "MIT",
