@@ -253,9 +253,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
+      - id: generate
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate.outputs.token }}
+          fetch-depth: 0
 
       - uses: ./.github/actions/setup
 
@@ -263,11 +270,19 @@ jobs:
         id: build
         run: npm run bundle
 
-      - name: Compare Directories
+      - name: Compare Directories and Commit Changes
         id: diff
         run: |
           if [ "$(git diff --ignore-space-at-eol --text dist/ | wc -l)" -gt "0" ]; then
-            echo "Detected uncommitted changes in the 'dist/' directory after build. Please ensure all changes are committed before pushing."
+
+            # if there are uncommitted changes in the dist/ directory, print them out and commit
             git diff --ignore-space-at-eol --ignore-all-space --ignore-blank-lines --text dist/
-            exit 1
+
+            # commit the changes
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+
+            git add dist/
+            git commit -m "chore: update dist/ directory"
+            git push origin HEAD:${GITHUB_REF#refs/heads/}
           fi
