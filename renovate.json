@@ -11,12 +11,7 @@
     },
     {
       "groupName": "npm",
-      "matchManagers": ["npm"],
-      "postUpgradeTasks": {
-        "commands": ["npm run bundle"],
-        "fileFilters": ["dist/**"],
-        "executionMode": "update"
-      }
+      "matchManagers": ["npm"]
     }
   ]
 }
