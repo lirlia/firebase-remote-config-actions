@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.0.5](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.4...v0.0.5) - 2024-08-07
+- chore: add post-upgrade tasks for npm dependency update by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/36
+- chore: add post-upgrade tasks for npm dependency update by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/38
+- Revert "chore: add post-upgrade tasks for npm dependency update" by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/40
+- Revert "chore: add post-upgrade tasks for npm dependency update" by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/41
+- chore: update dist/ directory by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/42
+- Revert "chore: update dist/ directory" by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/43
+- chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/39
+
 ## [v0.0.4](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.3...v0.0.4) - 2024-07-29
 - chore(deps): update dependency node to v20.15.1 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/31
 - chore(deps): update dependency node to v20.16.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/34
