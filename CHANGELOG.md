@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.6](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.5...v0.0.6) - 2024-08-09
+- Bump undici from 5.28.3 to 5.28.4 by @dependabot in https://github.com/lirlia/firebase-remote-config-actions/pull/45
+- Bump fast-xml-parser from 4.3.6 to 4.4.1 by @dependabot in https://github.com/lirlia/firebase-remote-config-actions/pull/44
+
 ## [v0.0.5](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.4...v0.0.5) - 2024-08-07
 - chore: add post-upgrade tasks for npm dependency update by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/36
 - chore: add post-upgrade tasks for npm dependency update by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/38
