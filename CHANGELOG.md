@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.0.7](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.6...v0.0.7) - 2024-08-15
+- chore(deps): update songmu/tagpr action to v1.4.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/48
+- chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/47
+- fix(deps): update dependency axios to v1.7.4 [security] by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/50
+
 ## [v0.0.6](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.5...v0.0.6) - 2024-08-09
 - Bump undici from 5.28.3 to 5.28.4 by @dependabot in https://github.com/lirlia/firebase-remote-config-actions/pull/45
 - Bump fast-xml-parser from 4.3.6 to 4.4.1 by @dependabot in https://github.com/lirlia/firebase-remote-config-actions/pull/44
