@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.0.8](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.7...v0.0.8) - 2024-09-09
+- chore(deps): update dependency @types/node to v20.16.1 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/51
+- chore(deps): update dependency node to v20.17.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/54
+- fix(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/53
+- chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/55
+
 ## [v0.0.7](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.6...v0.0.7) - 2024-08-15
 - chore(deps): update songmu/tagpr action to v1.4.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/48
 - chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/47
