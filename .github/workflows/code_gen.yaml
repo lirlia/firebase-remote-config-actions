@@ -2,8 +2,7 @@ name: code gen
 on:
   push:
     branches:
-      - "*"
-      - "!main"
+      - renovate/*
 
 jobs:
   code-gen:
