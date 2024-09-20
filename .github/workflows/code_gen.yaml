@@ -1,0 +1,50 @@
+name: code gen
+on:
+  push:
+    branches:
+      - "*"
+      - "!main"
+
+jobs:
+  code-gen:
+    name: code gen
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+
+      - name: code gen
+        run: npm run bundle
+
+      - name: Generate app token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: push commit
+        run: |
+          git config --local user.email '${{ steps.generate-token.outputs.app-slug }}@users.noreply.github.com'
+          git config --local user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Working directory clean"
+            exit 0
+          fi
+
+          git add .
+          git commit -m "code gen"
+          git push
