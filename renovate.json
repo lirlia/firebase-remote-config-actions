@@ -7,11 +7,13 @@
   "packageRules": [
     {
       "groupName": "github-actions",
-      "matchManagers": ["github-actions"]
+      "matchManagers": ["github-actions"],
+      "automerge": true
     },
     {
       "groupName": "npm",
-      "matchManagers": ["npm"]
+      "matchManagers": ["npm"],
+      "automerge": true
     }
   ]
 }
