@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.0.9](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.8...v0.0.9) - 2024-09-22
+- chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/57
+- chore(deps): update songmu/tagpr action to v1.4.1 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/56
+- add automege by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/59
+- add npm run bundle by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/60
+- chore(deps): update dependency @biomejs/biome to v1.9.2 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/61
+- change target branch by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/62
+- chore(deps): update songmu/tagpr action to v1.4.2 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/63
+
 ## [v0.0.8](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.7...v0.0.8) - 2024-09-09
 - chore(deps): update dependency @types/node to v20.16.1 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/51
 - chore(deps): update dependency node to v20.17.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/54
