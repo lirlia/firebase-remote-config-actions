@@ -4,6 +4,9 @@ on:
     branches:
       - renovate/*
 
+permissions:
+  contents: write
+
 jobs:
   code-gen:
     name: code gen
