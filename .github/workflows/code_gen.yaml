@@ -38,11 +38,14 @@ jobs:
 
       - name: push commit
         run: |
+          set -x
           git config --local user.email '${{ steps.generate-token.outputs.app-slug }}@users.noreply.github.com'
           git config --local user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
 
+          git diff
+          git status
 
-          if [ -z "$(git status --porcelain)" ]; then
+           if [ "$(git diff --ignore-cr-at-eol --ignore-space-at-eol dist/ | wc -l)" -eq "0" ]; then
             echo "Working directory clean"
             exit 0
           fi
