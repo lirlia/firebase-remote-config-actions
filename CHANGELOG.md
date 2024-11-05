@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.0.11](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.10...v0.0.11) - 2024-11-05
+- chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/71
+- chore(deps): update songmu/tagpr action to v1.5.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/74
+- chore(deps): update dependency node to v22 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/76
+- chore(deps): update dependency @types/node to v22 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/75
+
 ## [v0.0.10](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.9...v0.0.10) - 2024-10-13
 - Update code_gen.yaml to add write permissions for contents by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/65
 - chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/67
