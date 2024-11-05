@@ -40,7 +40,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/json-diff": "^1.0.3",
-    "@types/node": "^20.11.28",
+    "@types/node": "^22.0.0",
     "@vercel/ncc": "^0.38.1",
     "typescript": "^5.4.3"
   }
