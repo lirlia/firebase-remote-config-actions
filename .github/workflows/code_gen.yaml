@@ -23,7 +23,7 @@ jobs:
         run: npm run bundle
 
       - name: Generate app token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app_id: ${{ secrets.APP_ID }}
