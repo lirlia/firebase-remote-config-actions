@@ -24,5 +24,8 @@ jobs:
     if: always()
     steps:
       - run: |
-          [[ ${{ needs.call-test.result }} == 'success' ]] && exit 0
-          exit 1
+          if [[ "${{ needs.call-test.result }}" == 'success' ]]; then
+            exit 0
+          elif [[ "${{ needs.call-test.result }}" == 'skipped' || "${{ needs.call-test.result }}" == 'cancelled' ]]; then
+            exit 0
+          fi
