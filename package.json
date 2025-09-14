@@ -38,7 +38,7 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.4",
     "@types/json-diff": "^1.0.3",
     "@types/node": "^22.0.0",
     "@vercel/ncc": "^0.38.1",
