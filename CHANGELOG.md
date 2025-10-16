@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.0.12](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.11...v0.0.12) - 2025-10-03
+- chore(deps): update node.js to v22.12.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/78
+- chore(deps): update node.js to v22.14.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/83
+- chore(deps): update actions/checkout action to v5 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/87
+- chore(deps): update google-github-actions/auth action to v3 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/89
+- chore(deps): update actions/setup-node action to v5 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/90
+- Update test_wrapper.yaml by @lirlia in https://github.com/lirlia/firebase-remote-config-actions/pull/92
+- fix(deps): update dependency axios to v1.8.2 [security] by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/88
+- chore(deps): update songmu/tagpr action to v1.5.1 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/80
+- fix(deps): update npm by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/73
+- chore(deps): update node.js to v22.19.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/85
+- chore(deps): update songmu/tagpr action to v1.9.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/94
+- chore(deps): update npm by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/95
+- fix(deps): update dependency axios to v1.12.0 [security] - abandoned by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/93
+- chore(deps): update node.js to v22.20.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/96
+
 ## [v0.0.11](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.10...v0.0.11) - 2024-11-05
 - chore(deps): update npm by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/71
 - chore(deps): update songmu/tagpr action to v1.5.0 by @renovate in https://github.com/lirlia/firebase-remote-config-actions/pull/74
