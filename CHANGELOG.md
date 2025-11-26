@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.0.13](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.12...v0.0.13) - 2025-11-26
+- chore(deps): bump axios from 1.7.7 to 1.12.0 by @dependabot[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/91
+- chore(deps): update npm by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/97
+- chore(deps): update actions/setup-node action to v6 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/100
+- chore(deps): update dependency @types/node to v22.18.12 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/99
+- chore(deps): update dependency @types/node to v24 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/103
+- chore(deps): update actions/checkout action to v6 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/105
+- fix(deps): update dependency firebase-admin to v13 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/77
+
 ## [v0.0.12](https://github.com/lirlia/firebase-remote-config-actions/compare/v0.0.11...v0.0.12) - 2025-10-03
 - chore(deps): update node.js to v22.12.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/78
 - chore(deps): update node.js to v22.14.0 by @renovate[bot] in https://github.com/lirlia/firebase-remote-config-actions/pull/83
